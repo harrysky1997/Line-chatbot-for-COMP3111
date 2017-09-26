@@ -5,9 +5,6 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.net.URISyntaxException;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URI;
 
 @Slf4j
@@ -19,11 +16,11 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		try {
 			Connection connection = this.getConnection();
 			PreparedStatement stmt = connection.prepareStatement(
-					"SELECT keyword, response FROM lab3 where keyword like concat('%', ?, '%')");
+					"SELECT LOWER(keyword), response FROM lab3 where keyword like LOWER(concat('%', ?, '%'))");
 			stmt.setString(1, text);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				if (text.toLowerCase().equals(rs.getString(1).toLowerCase())) {
+				if (text.equals(rs.getString(1))) {
 					result = rs.getString(2);
 					break;
 				}
