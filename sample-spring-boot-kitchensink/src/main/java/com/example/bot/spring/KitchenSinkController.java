@@ -264,19 +264,30 @@ public class KitchenSinkController {
             }
             case "tour": {
             	List<String> tour = database.getTourList();
-            	Action[] tourEnroll = new Action[tour.size()];
-            	
-            	for (int i = 0; i < tour.size(); i++) {
-            		tourEnroll[i] = 
-            		new MessageAction(tour.get(i), "You successfully enroll in " + tour.get(i) + ".");
+            	int j = 0;
+            	int count = tour.size();
+            	Action[] tourEnroll = new Action[4];
+            	while (j < count) {
+            		for (int i = 0; i < 4 && j < count; i++) {
+            			tourEnroll[i] = new MessageAction(
+            					tour.get(j), "You successfully enroll in " + tour.get(j) + ".");
+            			j++;
+            		}            	
+            		ButtonsTemplate buttonTemplate = new ButtonsTemplate(
+            				null, null, "Tour Selection", Arrays.asList(tourEnroll));            			
+            		TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
+                	this.reply(replyToken, templateMessage);
             	}
             	
+            	/*for (int i = 0; i < count; i++) {
+            		tourEnroll[i] = 
+            		new MessageAction(tour.get(i), "You successfully enroll in " + tour.get(i) + ".");
+            	}            	 
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
             			null, null, "Tour Selection", 
-            			Arrays.asList(tourEnroll));
-            			
+            			Arrays.asList(tourEnroll));            			
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
-                this.reply(replyToken, templateMessage);
+                this.reply(replyToken, templateMessage);*/
             	break;
             }
 
