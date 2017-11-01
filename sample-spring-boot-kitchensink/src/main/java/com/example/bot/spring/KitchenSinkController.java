@@ -279,7 +279,7 @@ public class KitchenSinkController {
             	String imageUrl = createUri("/static/buttons/1040.jpg");
             	Action[] tourEnroll = new Action[4];
             	
-            	for (int i = 0; i < tourEnroll.size(); i++) {
+            	for (int i = 0; i < 4; i++) {
             		tourEnroll[i] = 
             		new MessageAction(tour.get(i), "You successfully enroll in " + tour.get(i) + ".");
             	}
