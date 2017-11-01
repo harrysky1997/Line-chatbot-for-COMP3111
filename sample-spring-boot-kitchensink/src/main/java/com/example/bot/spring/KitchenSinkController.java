@@ -262,21 +262,9 @@ public class KitchenSinkController {
                 this.reply(replyToken, templateMessage);
                 break;
             }
-            /*case "tour": {
-            	List<String> tour = database.getTourList();
-            	String imageUrl = createUri("/static/buttons/1040.jpg");
-            	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
-            			imageUrl, "Tour Selection", "Please choose a tour", null);
-            	for (int i = 0; i < tour.size(); i++) {
-            		buttonTemplate.createActions(tour.get(i));
-            	}
-            	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
-                this.reply(replyToken, templateMessage);
-            	break;
-            }*/
             case "tour": {
             	List<String> tour = database.getTourList();
-            	String imageUrl = createUri("/static/buttons/1040.jpg");
+            	//String imageUrl = createUri("/static/buttons/1040.jpg");
             	Action[] tourEnroll = new Action[tour.size()];
             	
             	for (int i = 0; i < tour.size(); i++) {
@@ -285,8 +273,7 @@ public class KitchenSinkController {
             	}
             	
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
-            			imageUrl, "Tour Selection", "Please choose a tour", 
-            			Arrays.asList(tourEnroll));
+            			"Tour Selection", Arrays.asList(tourEnroll));
             			
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
                 this.reply(replyToken, templateMessage);

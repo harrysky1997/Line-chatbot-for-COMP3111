@@ -36,7 +36,7 @@ import lombok.Value;
 @Value
 @JsonTypeName("buttons")
 public class ButtonsTemplate implements Template {
-    /**
+/*    /**
      * Image URL
      * <ul>
      *  <li>HTTPS</li>
@@ -47,14 +47,14 @@ public class ButtonsTemplate implements Template {
      *  <li>Max: 1 MB</li>
      * </ul>
      */
-    private final String thumbnailImageUrl;
+//    private final String thumbnailImageUrl;
 
     /**
      * Title(Max 40 characters)
      */
     private final String title;
 
-    /**
+/*    /**
      * Message text
      *
      * <ul>
@@ -62,7 +62,7 @@ public class ButtonsTemplate implements Template {
      *     <li>Max: 60 characters (message with an image or title)</li>
      * </ul>
      */
-    private final String text;
+//    private final String text;
 
     /**
      * Action when tapped(Max: 4)
@@ -71,13 +71,13 @@ public class ButtonsTemplate implements Template {
 
     @JsonCreator
     public ButtonsTemplate(
-            @JsonProperty("thumbnailImageUrl") String thumbnailImageUrl,
+            //@JsonProperty("thumbnailImageUrl") String thumbnailImageUrl,
             @JsonProperty("title") String title,
-            @JsonProperty("text") String text,
+            //@JsonProperty("text") String text,
             @JsonProperty("actions") List<Action> actions) {
-        this.thumbnailImageUrl = thumbnailImageUrl;
+        //this.thumbnailImageUrl = thumbnailImageUrl;
         this.title = title;
-        this.text = text;
+        //this.text = text;
         this.actions = actions != null ? actions : Collections.emptyList();
     }
 }
