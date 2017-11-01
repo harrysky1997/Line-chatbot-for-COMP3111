@@ -263,10 +263,10 @@ public class KitchenSinkController {
                 break;
             }
             case "tour": {
-            	List<String> tour = database.getTourList();
-            	TemplateMessage[] arrayMessages = new TemplateMessage[] {};
+            	List<String> tour = database.getTourList();            	
             	int j = 0; int messageCount = 0;
             	int count = tour.size();
+            	TemplateMessage[] arrayMessages = new TemplateMessage[count/4 + 1];
             	Action[] tourEnroll = new Action[4];
             	while (j < count) {
             		for (int i = 0; i < 4 && j < count; i++) {
