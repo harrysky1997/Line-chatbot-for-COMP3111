@@ -286,7 +286,7 @@ public class KitchenSinkController {
             	
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
             			imageUrl, "Tour Selection", "Please choose a tour", 
-            			new MessageAction(tour.get(0), "You successfully enroll in " + tour.get(0) + "."));
+            			Arrays.asList(new MessageAction(tour.get(0), "You successfully enroll in " + tour.get(0) + ".")));
             			
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
                 this.reply(replyToken, templateMessage);
