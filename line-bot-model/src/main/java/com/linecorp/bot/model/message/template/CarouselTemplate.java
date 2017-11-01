@@ -33,7 +33,7 @@ public class CarouselTemplate implements Template {
     /**
      * List of columns(Max: 5)
      */
-    private List<CarouselColumn> columns;
+    private final List<CarouselColumn> columns;
 
     @JsonCreator
     public CarouselTemplate(@JsonProperty("columns") List<CarouselColumn> columns) {

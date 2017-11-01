@@ -31,7 +31,7 @@ import lombok.Value;
 @JsonTypeName("confirm")
 public class ConfirmTemplate implements Template {
     private final String text;
-    private List<Action> actions;
+    private final List<Action> actions;
 
     @JsonCreator
     public ConfirmTemplate(@JsonProperty("text") String text, @JsonProperty("actions") List<Action> actions) {

@@ -79,6 +79,11 @@ import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 
+import com.linecorp.bot.model.action.Action;
+import com.linecorp.bot.model.action.MessageAction;
+import com.linecorp.bot.model.action.PostbackAction;
+import com.linecorp.bot.model.action.URIAction;
+
 import lombok.NonNull;
 import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
@@ -257,7 +262,7 @@ public class KitchenSinkController {
                 this.reply(replyToken, templateMessage);
                 break;
             }
-            case "tour": {
+            /*case "tour": {
             	List<String> tour = database.getTourList();
             	String imageUrl = createUri("/static/buttons/1040.jpg");
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
@@ -268,17 +273,25 @@ public class KitchenSinkController {
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
                 this.reply(replyToken, templateMessage);
             	break;
-            }
-            /*case "tour": {
+            }*/
+            case "tour": {
+            	List<String> tour = database.getTourList();
             	String imageUrl = createUri("/static/buttons/1040.jpg");
+            	Action[] tourEnroll = new Action[4];
+            	
+            	for (int i = 0; i < tourEnroll.length; i++) {
+            		tourEnroll[i] = 
+            		new MessageAction(tour.get(i), "You successfully enroll in " + tour.get(i) + ".");
+            	}
+            	
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
             			imageUrl, "Tour Selection", "Please choose a tour", 
-            			Arrays.asList( new MessageAction("Japan", "You successfully enroll in Japan."),
-            			new MessageAction("England", "You successfully enroll in England.")));
+            			Arrays.asList(tourEnroll));
+            			
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
                 this.reply(replyToken, templateMessage);
             	break;
-            }*/
+            }
 
             default:
             	String reply = null;
