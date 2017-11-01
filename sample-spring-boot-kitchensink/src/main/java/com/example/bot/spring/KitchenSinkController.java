@@ -277,14 +277,12 @@ public class KitchenSinkController {
             case "tour": {
             	List<String> tour = database.getTourList();
             	String imageUrl = createUri("/static/buttons/1040.jpg");
-            	Action[] tourEnroll = new Action[1];
+            	Action[] tourEnroll = new Action[tour.size()];
             	
-            	/*for (int i = 0; i < tour.size(); i++) {
+            	for (int i = 0; i < tour.size(); i++) {
             		tourEnroll[i] = 
             		new MessageAction(tour.get(i), "You successfully enroll in " + tour.get(i) + ".");
-            	}*/
-            	tourEnroll[0] = 
-                		new MessageAction(tour.get(0), "You successfully enroll in " + tour.get(0) + ".");
+            	}
             	
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
             			imageUrl, "Tour Selection", "Please choose a tour", 
