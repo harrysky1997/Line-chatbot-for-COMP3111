@@ -18,6 +18,7 @@ package com.linecorp.bot.model.message.template;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -67,7 +68,7 @@ public class ButtonsTemplate implements Template {
     /**
      * Action when tapped(Max: 4)
      */
-    private final List<Action> actions;
+    private List<Action> actions;
 
     @JsonCreator
     public ButtonsTemplate(
@@ -82,7 +83,7 @@ public class ButtonsTemplate implements Template {
     }
 
     public void createActions(String text) {
-    	this.actions = new List<Action>();
+    	this.actions = new ArrayList<Action>();
         Action enroll = new MessageAction(text, "You successfully enroll in " + text + ".");
         this.actions.add(enroll);
     }
