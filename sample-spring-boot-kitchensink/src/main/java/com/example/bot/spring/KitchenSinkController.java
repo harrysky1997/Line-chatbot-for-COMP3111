@@ -277,7 +277,7 @@ public class KitchenSinkController {
             case "tour": {
             	List<String> tour = database.getTourList();
             	String imageUrl = createUri("/static/buttons/1040.jpg");
-            	Action[] tourEnroll = new Action[4];
+            	Action[] tourEnroll = new Action[1];
             	
             	/*for (int i = 0; i < tour.size(); i++) {
             		tourEnroll[i] = 
