@@ -78,10 +78,11 @@ public class ButtonsTemplate implements Template {
         this.thumbnailImageUrl = thumbnailImageUrl;
         this.title = title;
         this.text = text;
-        this.actions = actions != null ? actions : new List();
+        this.actions = actions != null ? actions : null;
     }
 
     public void createActions(String text) {
+    	this.actions = new List<Action>();
         Action enroll = new MessageAction(text, "You successfully enroll in " + text + ".");
         this.actions.add(enroll);
     }
