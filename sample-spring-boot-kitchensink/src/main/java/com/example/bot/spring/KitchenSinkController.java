@@ -265,7 +265,8 @@ public class KitchenSinkController {
             case "tour": {
             	List<String> tour = database.getTourList();
             	List<Message> multiMessages = new ArrayList<Message>();
-            	int j = 0;
+            	List<ButtonsTemplate> buttonTemplate = new ArrayList<ButtonsTemplate>();
+            	int j = 0; int templateCount = 0;
             	int count = tour.size();
             	Action[] tourEnroll = new Action[4];
             	while (j < count) {
@@ -274,10 +275,10 @@ public class KitchenSinkController {
             					tour.get(j), "You successfully enroll in " + tour.get(j) + ".");
             			j++;
             		}            	
-            		ButtonsTemplate buttonTemplate = new ButtonsTemplate(
-            				null, null, "Tour Selection", Arrays.asList(tourEnroll));            			
-            		TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
-            		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate));                	
+            		//ButtonsTemplate buttonTemplate = new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll));
+            		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));
+            		//TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
+            		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(templateCount++)));                	
             	}
             	
             	/*for (int i = 0; i < count; i++) {
