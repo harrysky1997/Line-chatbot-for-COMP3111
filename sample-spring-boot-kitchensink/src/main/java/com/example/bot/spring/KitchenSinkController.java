@@ -277,8 +277,7 @@ public class KitchenSinkController {
             		ButtonsTemplate buttonTemplate = new ButtonsTemplate(
             				null, null, "Tour Selection", Arrays.asList(tourEnroll));            			
             		TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
-            		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate));
-                	this.reply(replyToken, multiMessages);
+            		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate));                	
             	}
             	
             	/*for (int i = 0; i < count; i++) {
@@ -290,6 +289,7 @@ public class KitchenSinkController {
             			Arrays.asList(tourEnroll));            			
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
                 this.reply(replyToken, templateMessage);*/
+            	this.reply(replyToken, multiMessages);
             	break;
             }
 
