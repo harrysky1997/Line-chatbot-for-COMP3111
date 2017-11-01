@@ -272,7 +272,7 @@ public class KitchenSinkController {
             	}
             	
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
-            			null, "Tour Selection", null, 
+            			null, "Tour Selection", "", 
             			Arrays.asList(tourEnroll));
             			
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
