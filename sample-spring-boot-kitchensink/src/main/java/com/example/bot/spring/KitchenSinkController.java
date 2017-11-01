@@ -264,8 +264,8 @@ public class KitchenSinkController {
             }
             case "tour": {
             	List<String> tour = database.getTourList();
-            	List<Message> multiMessages = new ArrayList<Message>();
-            	int j = 0;
+            	TemplateMessage[] arrayMessages = new TemplateMessage[] {};
+            	int j = 0; int messageCount = 0;
             	int count = tour.size();
             	Action[] tourEnroll = new Action[4];
             	while (j < count) {
@@ -274,14 +274,13 @@ public class KitchenSinkController {
             					tour.get(j), "You successfully enroll in " + tour.get(j) + ".");
             			j++;
             		}            	
-            		//ButtonsTemplate buttonTemplate = new ButtonsTemplate(
-            		//		null, null, "Tour Selection", Arrays.asList(tourEnroll));            			
+            		ButtonsTemplate buttonTemplate = new ButtonsTemplate(
+            				null, null, "Tour Selection", Arrays.asList(tourEnroll));            			
             		//TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
-            		multiMessages.add(new TemplateMessage(
-            				"Button alt text", new ButtonsTemplate(
-                    				null, null, "Tour Selection", Arrays.asList(tourEnroll))));
+            		arrayMessages[messageCount++] = new TemplateMessage("Button alt text", buttonTemplate);
                 	//this.reply(replyToken, templateMessage);
             	}
+            	List<Message> multiMessages = Arrays.asList(arrayMessages);
             	this.reply(replyToken, multiMessages);
             	/*for (int i = 0; i < count; i++) {
             		tourEnroll[i] = 
