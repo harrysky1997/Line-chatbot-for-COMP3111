@@ -283,10 +283,12 @@ public class KitchenSinkController {
             		tourEnroll[i] = 
             		new MessageAction(tour.get(i), "You successfully enroll in " + tour.get(i) + ".");
             	}*/
+            	tourEnroll[0] = 
+                		new MessageAction(tour.get(0), "You successfully enroll in " + tour.get(0) + ".");
             	
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
             			imageUrl, "Tour Selection", "Please choose a tour", 
-            			Arrays.asList(new MessageAction(tour.get(0), "You successfully enroll in " + tour.get(0) + ".")));
+            			Arrays.asList(tourEnroll));
             			
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
                 this.reply(replyToken, templateMessage);
