@@ -33,7 +33,29 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		throw new Exception("NOT FOUND");
 	}
 	
-	
+	@Override
+	List<String> tourList() throws Exception {
+		//Write your code here
+		List<String> tourList = new ArrayList<String>();
+		try {
+			Connection connection = this.getConnection();
+			PreparedStatement stmt = connection.prepareStatement(
+					"SELECT place FROM selectmenu");
+			ResultSet placeList = stmt.executeQuery();
+			while (placeList.next()) {
+				tourList.add(placeList.getString(1));
+			}
+			rs.close();
+			stmt.close();
+			connection.close();
+		} catch (Exception e) {
+			System.out.println("Failed to get from database" + e);
+		}
+		if (tourList != null)
+			return tourList;
+		throw new Exception("NOT FOUND");
+	}
+
 	private Connection getConnection() throws URISyntaxException, SQLException {
 		Connection connection;
 		URI dbUri = new URI(System.getenv("DATABASE_URL"));

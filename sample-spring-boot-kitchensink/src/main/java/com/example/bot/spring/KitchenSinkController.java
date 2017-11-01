@@ -256,6 +256,18 @@ public class KitchenSinkController {
                 this.reply(replyToken, templateMessage);
                 break;
             }
+            case "tour": {
+            	List<String> tour = database.tourList();
+            	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
+            		"Please choose a tour:"
+            	);
+            	for (int i = 0; i < tour.size(); i++) {
+            		buttonTemplate.actions = new MessageAction(tour.get(i), "You choose " + tour.get(i) + ".");
+            	}
+            	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
+                this.reply(replyToken, templateMessage);
+            	break;
+            }
 
             default:
             	String reply = null;
