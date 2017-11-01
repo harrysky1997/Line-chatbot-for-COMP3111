@@ -264,6 +264,7 @@ public class KitchenSinkController {
             }
             case "tour": {
             	List<String> tour = database.getTourList();
+            	List<Message> multiMessages = new ArrayList<Message>();
             	int j = 0;
             	int count = tour.size();
             	Action[] tourEnroll = new Action[4];
@@ -275,10 +276,11 @@ public class KitchenSinkController {
             		}            	
             		ButtonsTemplate buttonTemplate = new ButtonsTemplate(
             				null, null, "Tour Selection", Arrays.asList(tourEnroll));            			
-            		TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
-                	this.reply(replyToken, templateMessage);
+            		//TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
+            		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate));
+                	//this.reply(replyToken, templateMessage);
             	}
-            	
+            	this.reply(replyToken, multiMessages);
             	/*for (int i = 0; i < count; i++) {
             		tourEnroll[i] = 
             		new MessageAction(tour.get(i), "You successfully enroll in " + tour.get(i) + ".");
