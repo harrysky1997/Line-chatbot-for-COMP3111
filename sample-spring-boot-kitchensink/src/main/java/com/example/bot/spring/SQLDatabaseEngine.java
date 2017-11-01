@@ -36,7 +36,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		throw new Exception("NOT FOUND");
 	}
 	
-	/*List<String> getTourList() throws Exception {
+	List<String> getTourList() throws Exception {
 		//Write your code here
 		List<String> tourList = new ArrayList<String>();
 		try {
@@ -56,7 +56,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		if (tourList != null)
 			return tourList;
 		throw new Exception("NOT FOUND");
-	}*/
+	}
 
 	private Connection getConnection() throws URISyntaxException, SQLException {
 		Connection connection;

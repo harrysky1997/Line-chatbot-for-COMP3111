@@ -257,7 +257,7 @@ public class KitchenSinkController {
                 this.reply(replyToken, templateMessage);
                 break;
             }
-            /*case "tour": {
+            case "tour": {
             	List<String> tour = database.getTourList();
             	String imageUrl = createUri("/static/buttons/1040.jpg");
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
@@ -268,8 +268,8 @@ public class KitchenSinkController {
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
                 this.reply(replyToken, templateMessage);
             	break;
-            }*/
-            case "tour": {
+            }
+            /*case "tour": {
             	String imageUrl = createUri("/static/buttons/1040.jpg");
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
             			imageUrl, "Tour Selection", "Please choose a tour", 
@@ -278,7 +278,7 @@ public class KitchenSinkController {
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
                 this.reply(replyToken, templateMessage);
             	break;
-            }
+            }*/
 
             default:
             	String reply = null;
