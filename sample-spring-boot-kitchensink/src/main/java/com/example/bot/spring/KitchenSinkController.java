@@ -279,14 +279,14 @@ public class KitchenSinkController {
             	String imageUrl = createUri("/static/buttons/1040.jpg");
             	Action[] tourEnroll = new Action[4];
             	
-            	for (int i = 0; i < tour.size(); i++) {
+            	/*for (int i = 0; i < tour.size(); i++) {
             		tourEnroll[i] = 
             		new MessageAction(tour.get(i), "You successfully enroll in " + tour.get(i) + ".");
-            	}
+            	}*/
             	
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
             			imageUrl, "Tour Selection", "Please choose a tour", 
-            			Arrays.asList(tourEnroll));
+            			new MessageAction(tour.get(0), "You successfully enroll in " + tour.get(0) + "."));
             			
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
                 this.reply(replyToken, templateMessage);
