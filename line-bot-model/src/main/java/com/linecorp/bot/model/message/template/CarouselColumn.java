@@ -58,7 +58,7 @@ public class CarouselColumn {
     /**
      * Action when tapped(Max: 3)
      */
-    private final List<Action> actions;
+    private List<Action> actions;
 
     @JsonCreator
     public CarouselColumn(
