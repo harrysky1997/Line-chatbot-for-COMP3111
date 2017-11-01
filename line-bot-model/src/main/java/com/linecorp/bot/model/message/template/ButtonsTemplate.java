@@ -24,6 +24,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import com.linecorp.bot.model.action.Action;
+import com.linecorp.bot.model.action.MessageAction;
+import com.linecorp.bot.model.action.PostbackAction;
+import com.linecorp.bot.model.action.URIAction;
 
 import lombok.Value;
 
@@ -76,5 +79,10 @@ public class ButtonsTemplate implements Template {
         this.title = title;
         this.text = text;
         this.actions = actions != null ? actions : Collections.emptyList();
+    }
+
+    public void createActions(String text) {
+        Action enroll = new MessageAction(text, "You successfully enroll in " + text + ".");
+        this.actions.add(enroll);
     }
 }

@@ -6,6 +6,9 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.net.URISyntaxException;
 import java.net.URI;
+import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
 @Slf4j
 public class SQLDatabaseEngine extends DatabaseEngine {
@@ -33,8 +36,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		throw new Exception("NOT FOUND");
 	}
 	
-	@Override
-	List<String> tourList() throws Exception {
+	/*List<String> getTourList() throws Exception {
 		//Write your code here
 		List<String> tourList = new ArrayList<String>();
 		try {
@@ -45,7 +47,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 			while (placeList.next()) {
 				tourList.add(placeList.getString(1));
 			}
-			rs.close();
+			placeList.close();
 			stmt.close();
 			connection.close();
 		} catch (Exception e) {
@@ -54,7 +56,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		if (tourList != null)
 			return tourList;
 		throw new Exception("NOT FOUND");
-	}
+	}*/
 
 	private Connection getConnection() throws URISyntaxException, SQLException {
 		Connection connection;

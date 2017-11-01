@@ -23,6 +23,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -242,28 +243,38 @@ public class KitchenSinkController {
                                         new URIAction("Go to line.me",
                                                       "https://line.me"),
                                         new PostbackAction("Say hello1",
-                                                           "hello ã�“ã‚“ã�«ã�¡ã�¯")
+                                                           "hello 1")
                                 )),
                                 new CarouselColumn(imageUrl, "hoge", "fuga", Arrays.asList(
-                                        new PostbackAction("è¨€ hello2",
-                                                           "hello ã�“ã‚“ã�«ã�¡ã�¯",
-                                                           "hello ã�“ã‚“ã�«ã�¡ã�¯"),
+                                        new PostbackAction("say hello2",
+                                                           "hello 2",
+                                                           "hello 2"),
                                         new MessageAction("Say message",
-                                                          "Rice=ç±³")
+                                                          "Rice=sad")
                                 ))
                         ));
                 TemplateMessage templateMessage = new TemplateMessage("Carousel alt text", carouselTemplate);
                 this.reply(replyToken, templateMessage);
                 break;
             }
-            case "tour": {
-            	List<String> tour = database.tourList();
+            /*case "tour": {
+            	List<String> tour = database.getTourList();
+            	String imageUrl = createUri("/static/buttons/1040.jpg");
             	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
-            		"Please choose a tour:"
-            	);
+            			imageUrl, "Tour Selection", "Please choose a tour", null);
             	for (int i = 0; i < tour.size(); i++) {
-            		buttonTemplate.actions = new MessageAction(tour.get(i), "You choose " + tour.get(i) + ".");
+            		buttonTemplate.createActions(tour.get(i));
             	}
+            	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
+                this.reply(replyToken, templateMessage);
+            	break;
+            }*/
+            case "tour": {
+            	String imageUrl = createUri("/static/buttons/1040.jpg");
+            	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
+            			imageUrl, "Tour Selection", "Please choose a tour", 
+            			Arrays.asList( new MessageAction("Japan", "You successfully enroll in Japan."),
+            			new MessageAction("England", "You successfully enroll in England.")));
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
                 this.reply(replyToken, templateMessage);
             	break;
@@ -332,7 +343,7 @@ public class KitchenSinkController {
 		itscLOGIN = System.getenv("ITSC_LOGIN");
 	}
 
-	private DatabaseEngine database;
+	private SQLDatabaseEngine database;
 	private String itscLOGIN;
 	
 
