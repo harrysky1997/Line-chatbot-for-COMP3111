@@ -78,7 +78,7 @@ public class ButtonsTemplate implements Template {
         this.thumbnailImageUrl = thumbnailImageUrl;
         this.title = title;
         this.text = text;
-        this.actions = actions != null ? actions : Collections.emptyList();
+        this.actions = actions != null ? actions : new List();
     }
 
     public void createActions(String text) {
