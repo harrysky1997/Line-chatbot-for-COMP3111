@@ -264,26 +264,21 @@ public class KitchenSinkController {
             }
             case "tour": {
             	List<String> tour = database.getTourList();
-            	//List<Message> multiMessages = new ArrayList<Message>();
+            	List<com.sun.xml.internal.ws.wsdl.writer.document.Message> multiMessages = new ArrayList<Message>();
             	List<ButtonsTemplate> buttonTemplate = new ArrayList<ButtonsTemplate>();
-            	
             	int j = 0; int templateCount = 0;
             	int count = tour.size();
-            	
-            	TemplateMessage[] arrayMessage = new TemplateMessage[count/4 + 1];
             	Action[] tourEnroll = new Action[4];
-            	
             	while (j < count) {
             		for (int i = 0; i < 4 && j < count; i++) {
-            			tourEnroll[i] = new MessageAction(
-            					tour.get(j), "You successfully enroll in " + tour.get(j) + ".");
+            			String tourName = tour.get(j);
+            			tourEnroll[i] = new PostbackAction(
+            				tourName, "Enroll in "+tourName+".","You successfully enroll in " + tourName + ".");
             			j++;
             		}            	
             		
             		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));
-            		arrayMessage[templateCount] = new TemplateMessage("Button alt text", buttonTemplate.get(templateCount));
-            		templateCount++;
-            		//multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(templateCount++)));
+            		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(templateCount++)));
             		//ButtonsTemplate buttonTemplate = new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll));
             		//TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
             		}
@@ -297,7 +292,7 @@ public class KitchenSinkController {
             			Arrays.asList(tourEnroll));            			
             	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
                 this.reply(replyToken, templateMessage);*/
-            	this.reply(replyToken, Arrays.asList(arrayMessage));
+            	this.reply(replyToken, multiMessages.get(0));
             	break;
             }
 
