@@ -285,7 +285,7 @@ public class KitchenSinkController {
             		templateCount++;
             		if (templateCount == 2) break;
             		}
-            	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate.get(0));
+            	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate.get(1));
             	this.reply(replyToken, templateMessage);
             	break;
             }
