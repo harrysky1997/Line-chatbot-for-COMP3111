@@ -280,9 +280,10 @@ public class KitchenSinkController {
             			j++;
             		}            	
             		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));
-            		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(0)));
+            		//multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(0)));
             		templateCount++;
             		}
+            	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate.get(0));
             	this.reply(replyToken, multiMessages);
             	break;
             }
