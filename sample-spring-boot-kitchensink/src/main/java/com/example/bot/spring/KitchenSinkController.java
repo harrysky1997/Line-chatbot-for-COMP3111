@@ -281,7 +281,6 @@ public class KitchenSinkController {
             			case 3: {tourEnroll = new Action[3]; break;}
             			default: {tourEnroll = new Action[4]; break;}
             		}
-            		tourEnroll = new Action[4];
             		for (int i = 0; i < 4 && j < count; i++) {            			
             			String tourName = tour.get(j);
             			tourEnroll[i] = new PostbackAction(
