@@ -264,7 +264,7 @@ public class KitchenSinkController {
             }
             case "tour": {
             	List<String> tour = database.getTourList();
-            	List<com.sun.xml.internal.ws.wsdl.writer.document.Message> multiMessages = new ArrayList<Message>();
+            	List<Message> multiMessages = new ArrayList<Message>();
             	List<ButtonsTemplate> buttonTemplate = new ArrayList<ButtonsTemplate>();
             	int j = 0; int templateCount = 0;
             	int count = tour.size();
