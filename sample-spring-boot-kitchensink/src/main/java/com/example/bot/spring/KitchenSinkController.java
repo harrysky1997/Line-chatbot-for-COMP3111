@@ -271,10 +271,10 @@ public class KitchenSinkController {
             	int count = tour.size();
             	int templateCount = 0;
             	
-            	Action[] tourEnroll;            	
-            	
+            	//Action[] tourEnroll;            	
+            	List<com.sun.corba.se.spi.orbutil.fsm.Action> tourEnroll;
             	while (j < count) {
-            		diff = count - j;
+            		/*diff = count - j;
             		switch (diff) {
             			case 1: {tourEnroll = new Action[1]; break;}
             			case 2: {tourEnroll = new Action[2]; break;}
@@ -287,7 +287,15 @@ public class KitchenSinkController {
             				tourName, "You successfully enroll in " + tourName + ".","Enroll in "+tourName+".");
             			j++;
             		}            	
-            		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));
+            		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));*/
+            		tourEnroll = new ArrayList<Action>();
+            		for (int i = 0; i < 4 && j < count; i++) {            			
+            			String tourName = tour.get(j);
+            			tourEnroll.add(new PostbackAction(
+            				tourName, "You successfully enroll in " + tourName + ".","Enroll in "+tourName+"."));
+            			j++;
+            		}
+            		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", tourEnroll));
             		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(templateCount++)));            		
             		}            	
             	this.reply(replyToken, multiMessages);
