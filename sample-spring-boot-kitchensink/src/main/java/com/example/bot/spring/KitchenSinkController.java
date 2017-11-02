@@ -281,7 +281,8 @@ public class KitchenSinkController {
             		}            	
             		
             		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));
-            		arrayMessage[templateCount++] = new TemplateMessage("Button alt text", buttonTemplate.get(templateCount++));
+            		arrayMessage[templateCount] = new TemplateMessage("Button alt text", buttonTemplate.get(templateCount));
+            		templateCount++;
             		//multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(templateCount++)));
             		//ButtonsTemplate buttonTemplate = new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll));
             		//TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
