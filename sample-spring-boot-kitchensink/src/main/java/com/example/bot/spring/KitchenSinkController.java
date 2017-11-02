@@ -273,26 +273,17 @@ public class KitchenSinkController {
             		for (int i = 0; i < 4 && j < count; i++) {
             			String tourName = tour.get(j);
             			tourEnroll[i] = new PostbackAction(
-            				tourName, "Enroll in "+tourName+".","You successfully enroll in " + tourName + ".");
+            				tourName, "You successfully enroll in " + tourName + ".","Enroll in "+tourName+".");
             			j++;
             		}            	
             		
             		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));
             		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(templateCount++)));
             		//ButtonsTemplate buttonTemplate = new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll));
-            		//TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
-            		}
-            	
-            	/*for (int i = 0; i < count; i++) {
-            		tourEnroll[i] = 
-            		new MessageAction(tour.get(i), "You successfully enroll in " + tour.get(i) + ".");
-            	}            	 
-            	ButtonsTemplate buttonTemplate = new ButtonsTemplate(
-            			null, null, "Tour Selection", 
-            			Arrays.asList(tourEnroll));            			
-            	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
-                this.reply(replyToken, templateMessage);*/
-            	this.reply(replyToken, multiMessages.get(0));
+            		
+            		}           	
+            	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate.get(0));
+            	this.reply(replyToken, templateMessage);
             	break;
             }
 
