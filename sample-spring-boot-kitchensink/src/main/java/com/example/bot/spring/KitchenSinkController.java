@@ -265,28 +265,24 @@ public class KitchenSinkController {
             case "tour": {
             	List<String> tour = database.getTourList();
             	List<Message> multiMessages = new ArrayList<Message>();
-            	//List<ButtonsTemplate> buttonTemplate = new ArrayList<ButtonsTemplate>();
+            	List<ButtonsTemplate> buttonTemplate = new ArrayList<ButtonsTemplate>();
             	
             	int j = 0; int templateCount = 0;
             	int count = tour.size();
             	
-            	Action[] tourEnroll = new Action[4];
-            	ButtonsTemplate[] arrayButton = new ButtonsTemplate[count/4 + 1];
+            	Action[] tourEnroll = new Action[4];            	
             	
             	while (j < count) {
+            		Arrays.fill(tourEnroll, null);
             		for (int i = 0; i < 4 && j < count; i++) {            			
             			String tourName = tour.get(j);
             			tourEnroll[i] = new PostbackAction(
             				tourName, "You successfully enroll in " + tourName + ".","Enroll in "+tourName+".");
             			j++;
             		}            	
-            		arrayButton[templateCount] = new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll));
-            		
-            		//buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));
-            		multiMessages.add(new TemplateMessage("Button alt text", arrayButton[templateCount]));
+            		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));
+            		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(0)));
             		templateCount++;
-            		//ButtonsTemplate buttonTemplate = new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll));
-            		//TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate);
             		}
             	this.reply(replyToken, multiMessages);
             	break;
