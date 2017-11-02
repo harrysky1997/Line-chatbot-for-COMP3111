@@ -271,23 +271,9 @@ public class KitchenSinkController {
             	int count = tour.size();
             	int templateCount = 0;
             	
-            	//Action[] tourEnroll;            	
             	List<Action> tourEnroll;
+            	
             	while (j < count) {
-            		/*diff = count - j;
-            		switch (diff) {
-            			case 1: {tourEnroll = new Action[1]; break;}
-            			case 2: {tourEnroll = new Action[2]; break;}
-            			case 3: {tourEnroll = new Action[3]; break;}
-            			default: {tourEnroll = new Action[4]; break;}
-            		}
-            		for (int i = 0; i < 4 && j < count; i++) {            			
-            			String tourName = tour.get(j);
-            			tourEnroll[i] = new PostbackAction(
-            				tourName, "You successfully enroll in " + tourName + ".","Enroll in "+tourName+".");
-            			j++;
-            		}            	
-            		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));*/
             		tourEnroll = new ArrayList<Action>();
             		for (int i = 0; i < 4 && j < count; i++) {            			
             			String tourName = tour.get(j);
