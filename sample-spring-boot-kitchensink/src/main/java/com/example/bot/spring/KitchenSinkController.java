@@ -270,7 +270,7 @@ public class KitchenSinkController {
             	int j = 0; int templateCount = 0;
             	int count = tour.size();
             	
-            	Action[] tourEnroll = new Action[4];            	
+            	Action[] tourEnroll;            	
             	
             	while (j < count) {
             		tourEnroll = new Action[4];
@@ -281,12 +281,11 @@ public class KitchenSinkController {
             			j++;
             		}            	
             		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));
-            		//multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(0)));
-            		templateCount++;
-            		if (templateCount == 2) break;
+            		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(templateCount++)));
+            		
             		}
-            	TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate.get(1));
-            	this.reply(replyToken, templateMessage);
+            	//TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate.get(1));
+            	this.reply(replyToken, multiMessages);
             	break;
             }
 
