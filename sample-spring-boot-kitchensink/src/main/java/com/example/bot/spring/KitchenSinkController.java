@@ -267,12 +267,20 @@ public class KitchenSinkController {
             	List<Message> multiMessages = new ArrayList<Message>();
             	List<ButtonsTemplate> buttonTemplate = new ArrayList<ButtonsTemplate>();
             	
-            	int j = 0; int templateCount = 0;
+            	int j = 0; int diff;
             	int count = tour.size();
+            	int templateCount = 0;
             	
             	Action[] tourEnroll;            	
             	
             	while (j < count) {
+            		diff = count - j;
+            		switch (diff) {
+            			case 1: {tourEnroll = new Action[1]; break;}
+            			case 2: {tourEnroll = new Action[2]; break;}
+            			case 3: {tourEnroll = new Action[3]; break;}
+            			default: {tourEnroll = new Action[4]; break;}
+            		}
             		tourEnroll = new Action[4];
             		for (int i = 0; i < 4 && j < count; i++) {            			
             			String tourName = tour.get(j);
@@ -283,8 +291,7 @@ public class KitchenSinkController {
             		buttonTemplate.add(new ButtonsTemplate(null, null, "Tour Selection", Arrays.asList(tourEnroll)));
             		multiMessages.add(new TemplateMessage("Button alt text", buttonTemplate.get(templateCount++)));
             		if (templateCount == 2) break;
-            		}
-            	//TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonTemplate.get(1));
+            		}            	
             	this.reply(replyToken, multiMessages);
             	break;
             }
