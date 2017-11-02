@@ -275,6 +275,7 @@ public class KitchenSinkController {
             	
             	while (j < count) {
             		for (int i = 0; i < 4 && j < count; i++) {
+            			Arrays.fill(tourEnroll, null);
             			String tourName = tour.get(j);
             			tourEnroll[i] = new PostbackAction(
             				tourName, "You successfully enroll in " + tourName + ".","Enroll in "+tourName+".");
