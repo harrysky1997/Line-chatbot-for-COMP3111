@@ -274,8 +274,8 @@ public class KitchenSinkController {
             	ButtonsTemplate[] arrayButton = new ButtonsTemplate[count/4 + 1];
             	
             	while (j < count) {
-            		for (int i = 0; i < 4 && j < count; i++) {
-            			Arrays.fill(tourEnroll, null);
+            		Arrays.fill(tourEnroll, null);
+            		for (int i = 0; i < 4 && j < count; i++) {            			
             			String tourName = tour.get(j);
             			tourEnroll[i] = new PostbackAction(
             				tourName, "You successfully enroll in " + tourName + ".","Enroll in "+tourName+".");
