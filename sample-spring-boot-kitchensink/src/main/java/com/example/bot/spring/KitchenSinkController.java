@@ -272,7 +272,7 @@ public class KitchenSinkController {
             	int templateCount = 0;
             	
             	//Action[] tourEnroll;            	
-            	List<com.sun.corba.se.spi.orbutil.fsm.Action> tourEnroll;
+            	List<Action> tourEnroll;
             	while (j < count) {
             		/*diff = count - j;
             		switch (diff) {
