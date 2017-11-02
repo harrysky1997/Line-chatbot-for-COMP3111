@@ -273,6 +273,7 @@ public class KitchenSinkController {
             	Action[] tourEnroll = new Action[4];            	
             	
             	while (j < count) {
+            		tourEnroll = new Action[4];
             		for (int i = 0; i < 4 && j < count; i++) {            			
             			String tourName = tour.get(j);
             			tourEnroll[i] = new PostbackAction(
